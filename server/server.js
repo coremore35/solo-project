@@ -3,22 +3,24 @@ const app = express();
 const path = require('path');
 
 const port = process.env.PORT || 3000;
+const homeRouter = require('./routes/home');
 
 //DO I NE THIS? SHOULD IT GO HERE
 // Handles parsing request body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-if (process.env.NODE_ENV === 'production') {
-  //Serves what ever is in the build folder
-  app.use('/build', express.static(path.join(__dirname, '../build')));
+app.use('/home', homeRouter);
 
-  // serve the index.html on the '/' route
+// if (process.env.NODE_ENV === 'production' ) {
+//   //Serves what ever is in the build folder
+//   app.use('/build', express.static(path.join(__dirname, '../build')));
 
-  app.get('/', (req, res) => {
-    return res.status(200).sendFile(path.join(__dirname, '../index.html'));
-  });
-}
+//   // serve the index.html on the '/' route
+//   app.get('/', (req, res) => {
+//     return res.status(200).sendFile(path.join(__dirname, '../index.html'));
+//   });
+// }
 
 //invoked if you pass an argument to next()
 app.use((err, req, res, next) => {

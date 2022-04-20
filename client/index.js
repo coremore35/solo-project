@@ -1,6 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
 import './index.scss';
-import App from './components/App.jsx';
+import App from './App.jsx';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Fructans from './components/Fructans';
 
-render(<App />, document.getElementById('root'));
+render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById('root')
+);

@@ -42,6 +42,9 @@ module.exports = {
     port: 8080,
     open: true,
     hot: true,
+    proxy: {
+      '/api': 'http://localhost:3000',
+    },
   },
   plugins: [new HtmlWebpackPlugin({ template: 'index.html' })],
 };
