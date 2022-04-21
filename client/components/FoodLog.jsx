@@ -1,12 +1,12 @@
 // import React from 'react';
 import React, { Component } from 'react';
 
-function Fructans() {
+function FoodLog() {
   return (
     <div>
-      <h2>Fructans Component</h2>
+      <h2>Food Log Entries</h2>
     </div>
   );
 }
 
-export default Fructans;
+export default FoodLog;
