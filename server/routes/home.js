@@ -3,7 +3,7 @@ const fileController = require('../controllers/fileController');
 
 const router = express.Router();
 
-router.get('/', fileController.getAllFodmaps, (req, res) => {
+router.get('/fructans', fileController.getAllFodmaps, (req, res) => {
   return res.status(200).json();
 });
 

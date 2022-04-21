@@ -12,10 +12,17 @@ class NewItem extends Component {
       <div>
         <form>
           <label htmlFor='foodItem'>Food Item</label>
-          <input type='name' />
+          <input type='name' id='foodItem' />
 
           <legend>FODMAP TYPES</legend>
-          <input type='checkbox' id='fructans' name='fructans' />
+          <select id='fodmapType'>
+            <option value='fructans'>Fructans</option>
+            <option value='galactans'>Galactans</option>
+            <option value='lactose'>Lactose</option>
+            <option value='fructose'>Fructose</option>
+            <option value='polyols'>Polyols</option>
+          </select>
+          {/* <input type='checkbox' id='fructans' name='fructans' checked={this.props.}/>
           <label htmlFor='fructans'>Fructans</label>
 
           <input type='checkbox' id='galactans' name='galactans' />
@@ -28,17 +35,19 @@ class NewItem extends Component {
           <label htmlFor='lactose'>Lactose</label>
 
           <input type='checkbox' id='polyols' name='polyols' />
-          <label htmlFor='polyols'>Polyols</label>
+          <label htmlFor='polyols'>Polyols</label>  */}
 
           <legend>Symptoms</legend>
-          <input type='checkbox' id='dia' name='dia' />
-          <label htmlFor='dia'>Diarrhea</label>
+          <div id='symptomsBoxes'>
+            <input type='checkbox' id='dia' name='diarrhea' />
+            <label htmlFor='dia'>Diarrhea</label>
 
-          <input type='checkbox' id='gas' name='gas' />
-          <label htmlFor='gas'>Gas</label>
+            <input type='checkbox' id='gas' name='gas' />
+            <label htmlFor='gas'>Gas</label>
 
-          <input type='checkbox' id='bloating' name='bloating' />
-          <label htmlFor='bloating'>Bloating</label>
+            <input type='checkbox' id='bloating' name='bloating' />
+            <label htmlFor='bloating'>Bloating</label>
+          </div>
           <input
             type='submit'
             value='Submit Log'

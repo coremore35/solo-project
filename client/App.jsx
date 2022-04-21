@@ -1,18 +1,65 @@
 import React, { Component } from 'react';
 import { Link, Routes, Route } from 'react-router-dom';
-import FoodLog from './components/FoodLog';
+import FoodLogDisplay from './components/FoodLogDisplay';
 import NewItem from './components/NewItem';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      allLogs: [],
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  handleChange(e) {
+    const objKey = e.target.id;
+    const value = e.target.value;
+  }
+
   handleSubmit(e) {
-    console.log('hit button');
+    //method to grab the inputs
+    console.log(e.target.value);
+    const foodItem = document.getElementById('foodItem').value;
+    const fodmapType = document.getElementById('fodmapType').value;
+    const sympChecks = symptomsBoxes.querySelectorAll('input[type="checkbox"]');
+    const symptoms = [];
+    // console.log('symptoms', sympChecks);
+
+    function grabSymptoms(obj) {
+      obj.forEach((item) => {
+        if (item.checked) {
+          console.log(item);
+          symptoms.push(item.name);
+        }
+      });
+    }
+    grabSymptoms(sympChecks);
+
+    const todayDate = new Date().toDateString();
+
+    const newLog = {
+      foodItem: foodItem,
+      fodmapType: fodmapType,
+      symptoms: symptoms,
+      date: todayDate,
+    };
+    // console.log('sym array', symptoms);
+
+    // console.log(foodItem);
+    // ???? NOt working
+    const grabAllLogs = this.state.allLogs.slice();
+    grabAllLogs.push(newLog);
+    console.log(grabAllLogs);
+
+    this.setState({
+      allLogs: grabAllLogs,
+    });
+
+    console.log('state', this.state);
+    // what updates my server/db
+    // console.log('hit button');
     e.preventDefault();
   }
   // componentDidMount() {
@@ -25,7 +72,7 @@ class App extends Component {
         <h1>Food Tracker</h1>
         <button>Add New Log</button>
         <NewItem handleSubmit={this.handleSubmit} />
-        <FoodLog />
+        <FoodLogDisplay allLogs={this.state.allLogs} />
       </div>
     );
   }
