@@ -20,7 +20,7 @@ class App extends Component {
 
   handleSubmit(e) {
     //method to grab the inputs
-    console.log(e.target.value);
+    // console.log(e.target.value);
     const foodItem = document.getElementById('foodItem').value;
     const fodmapType = document.getElementById('fodmapType').value;
     const sympChecks = symptomsBoxes.querySelectorAll('input[type="checkbox"]');
@@ -48,16 +48,15 @@ class App extends Component {
     // console.log('sym array', symptoms);
 
     // console.log(foodItem);
-    // ???? NOt working
     const grabAllLogs = this.state.allLogs.slice();
     grabAllLogs.push(newLog);
-    console.log(grabAllLogs);
+    // console.log(grabAllLogs);
 
     this.setState({
       allLogs: grabAllLogs,
     });
 
-    console.log('state', this.state);
+    // console.log('state', this.state);
     // what updates my server/db
     // console.log('hit button');
     e.preventDefault();
@@ -69,8 +68,9 @@ class App extends Component {
   render() {
     return (
       <div className='router'>
-        <h1>Food Tracker</h1>
-        <button>Add New Log</button>
+        <header>
+          <h1>IBS / SIBO Food Tracker</h1>
+        </header>
         <NewItem handleSubmit={this.handleSubmit} />
         <FoodLogDisplay allLogs={this.state.allLogs} />
       </div>

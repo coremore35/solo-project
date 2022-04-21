@@ -11,7 +11,7 @@ function FoodLog(props) {
   });
 
   return (
-    <div>
+    <div className='displayBox'>
       <h2>Food Log Entries</h2>
       {logEntries}
     </div>

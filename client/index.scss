@@ -1,0 +1,44 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 0;
+  padding-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+header {
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.category {
+  padding: 10px;
+}
+
+.form-container {
+  border: solid 1px rgb(124, 124, 124);
+  background-color: lightblue;
+  list-style-type: none;
+  padding: 20px;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.button {
+  margin: 1em;
+  cursor: pointer;
+}
+
+.displayBox {
+  overflow: auto;
+  padding-top: 10px;
+}
+
+.logEntry {
+  padding: 5px;
+  width: 30%;
+  margin: 5px 5px 13px 10px;
+  float: left;
+  font-size: 0.8em;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
